@@ -27,4 +27,17 @@ Brain Computer Interface, open source, feature selection, on-line pipeline,  end
 
 ## Timetable
 
-*Coming soon*
+- Day 1 - July 8th, 3PM-5PM:
+  - 3:00PM-3:15PM - Welcome & introduction, M.-C. Corsi
+  - 3:15PM-3:45PM - What are BCIs, and how do they work? A guided tour, M.-C. Corsi & A. Desbois
+  - 3:45PM-4:15PM - Reproducibility in BCI, M.-C. Corsi
+  - 4:15PM-4:45PM - Classification features extraction and selection using HappyFeat, A. Desbois
+  - 4:45PM-5PM: Q&A
+    
+- Day 2 - July 9th, 9AM-11PM:
+  - 9AM-9:10AM - Introduction & recap from part 1, F. Dehais
+  - 9:10AM-9:40AM - Timeflux presentation, P. Clisson
+  - 9:40AM-10:00AM - Obstacles in real-world applications and end-user related issues, F. Dehais
+  - 10:00AM-10:30AM - Star-burst BCI hands-on and tutorial: pushing BCI out of the lab, K. Cabrera Castillos, F. Dehais, & P. Clisson
+  - 10:30AM-10:50AM - Discussion panel
+  - 10:50AM-11:00AM - Concluding remarks, F. Dehais
