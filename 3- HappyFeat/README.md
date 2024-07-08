@@ -7,7 +7,9 @@ Designing Brain-Computer Interfaces with Open-Source Tools: from theory to real-
 ## Resources
 
 [HappyFeat GitHub repo](https://github.com/Inria-NERV/happyFeat)
+
 [Stable Documentation](https://happyfeat.readthedocs.io/en/stable/)
+
 [PyPI package](https://pypi.org/project/happyfeat/)
 
 ## References
