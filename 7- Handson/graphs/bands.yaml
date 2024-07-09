@@ -31,23 +31,13 @@ graphs:
         topic: relaxlevel
     edge:
       - source: sub:filtered
-        target: debug1
-      - source: debug1
         target: electrodeselection
       - source: electrodeselection
-        target: debug2
-      - source: debug2
         target: bandextract
       - source: bandextract
-        target: debug3
-      - source: debug3
         target: relax
       - source: band_extract
-        target: debug4
-      - source: debug4
         target: pubbands
       - source: relax
-        target: debug5
-      - source: debug5
         target: pubrelax
     rate: 10

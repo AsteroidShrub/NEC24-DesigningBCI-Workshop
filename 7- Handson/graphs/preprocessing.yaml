@@ -31,4 +31,4 @@ graphs:
       - source: notch
         target: bandpass
       - source: bandpass
-        target: pubfiltered
+        target: pubfiltered:filtered

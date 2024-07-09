@@ -7,7 +7,6 @@ class DebugPassThrough(Node):
         self._once = True
         self._passed = False
         self._message = message
-
     
     def update(self):
         if self.i.ready():

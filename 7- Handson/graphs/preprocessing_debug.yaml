@@ -55,4 +55,4 @@ graphs:
       - source: bandpass
         target: debug3
       - source: debug3
-        target: pubfiltered
+        target: pubfiltered:filtered
