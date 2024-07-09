@@ -13,7 +13,7 @@ graphs:
       class: UI
       params:
         routes:
-          data: www/data
+          feedback: www/feedback
     edges:
       - source: sub:bands
         target: ui:bands
