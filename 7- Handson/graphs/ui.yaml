@@ -1,0 +1,22 @@
+graphs:
+  - id: ui
+    nodes:
+    - id: sub
+      module: timeflux.nodes.zmq
+      class: Sub
+      params:
+        topics: 
+          - bands
+          - relaxlevel
+    - id: ui
+      module: timeflux_ui.nodes.ui
+      class: UI
+      params:
+        routes:
+          data: www/data
+    edges:
+      - source: sub:bands
+        target: ui:bands
+      - source: sub:relaxlevel
+        target: ui:relaxlevel
+    rate: 10

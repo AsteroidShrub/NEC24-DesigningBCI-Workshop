@@ -1,0 +1,58 @@
+graphs:
+  - id: processing
+    nodes:
+    - id: sub
+      module: timeflux.nodes.zmq
+      class: Sub
+      params:
+        topics: [raw] 
+    - id: debug1
+      module: nodes.debug
+      class: DebugPassThrough
+      params:
+        once: False
+        message: "PreNotch"
+    - id: notch
+      module: timeflux_dsp.nodes.filters
+      class: IIRFilter
+      params:
+        filter_type: bandstop
+        frequencies: [45, 55]
+        order: 1
+    - id: debug2
+      module: nodes.debug
+      class: DebugPassThrough
+      params:
+        once: False
+        message: "Prepass"
+    - id: bandpass
+      module: timeflux_dsp.nodes.filters
+      class: IIRFilter
+      params:
+        filter_type: bandpass
+        frequencies: [0.1, 30]
+        order: 3
+    - id: debug3
+      module: nodes.debug
+      class: DebugPassThrough
+      params:
+        once: False
+        message: "Prepub"
+    - id: pubfiltered
+      module: timeflux.nodes.zmq
+      class: Pub
+      params:
+        topic: filtered
+    edges:
+      - source: sub:raw
+        target: debug1
+      - source: debug1
+        target: notch
+      - source: notch
+        target: debug2
+      - source: debug2
+        target: bandpass
+      - source: bandpass
+        target: debug3
+      - source: debug3
+        target: pubfiltered

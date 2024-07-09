@@ -1,0 +1,83 @@
+graphs:
+  - id: bands
+    nodes:
+    - id: sub
+      module: timeflux.nodes.zmq
+      class: Sub
+      params:
+        topics: filtered
+    - id: debug1
+      module: nodes.debug
+      class: DebugPassThrough
+      params:
+        once: False
+        message: "Delete"
+    - id: electrodeselection
+      module: nodes.electrodes
+      class: ElectrodeDeletion
+      params:
+        electrodes: {{ ELECTRODES }}
+    - id: debug2
+      module: nodes.debug
+      class: DebugPassThrough
+      params:
+        once: False
+        message: "Extract"
+    - id: bandextract
+      module: nodes.bands
+      class: BandExtraction
+      params:
+        bands: {{ BANDS }}
+    - id: debug3
+      module: nodes.debug
+      class: DebugPassThrough
+      params:
+        once: False
+        message: "Relax"
+    - id: relax
+      module: nodes.bands
+      class: Relax
+    - id: debug4
+      module: nodes.debug
+      class: DebugPassThrough
+      params:
+        once: False
+        message: "Pubbands"
+    - id: pub_bands
+      module: timeflux.nodes.zmq
+      class: Pub
+      params:
+        topic: bands
+    - id: debug5
+      module: nodes.debug
+      class: DebugPassThrough
+      params:
+        once: False
+        message: "Pubrelax"
+    - id: pubrelax
+      module: timeflux.nodes.zmq
+      class: Pub
+      params:
+        topic: relaxlevel
+    edge:
+      - source: sub:filtered
+        target: debug1
+      - source: debug1
+        target: electrodeselection
+      - source: electrodeselection
+        target: debug2
+      - source: debug2
+        target: bandextract
+      - source: bandextract
+        target: debug3
+      - source: debug3
+        target: relax
+      - source: band_extract
+        target: debug4
+      - source: debug4
+        target: pubbands
+      - source: relax
+        target: debug5
+      - source: debug5
+        target: pubrelax
+    rate: 10

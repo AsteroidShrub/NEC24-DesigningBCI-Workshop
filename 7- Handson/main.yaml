@@ -1,0 +1,14 @@
+import:
+  - graphs/dummy.yaml
+  # - graphs/enobio8.yaml
+  - graphs/preprocessing_debug.yaml
+  - graphs/bands_debug.yaml
+  - graphs/ui.yaml
+
+graphs:
+
+  - id: broker
+    nodes:
+      - id: broker
+        module: timeflux.nodes.zmq
+        class: Broker
